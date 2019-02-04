@@ -29,30 +29,25 @@ loginUserEmailInput.setAttribute("name", "user_email")
 loginUserEmailField.appendChild(loginUserEmailLabel)
 loginUserEmailField.appendChild(loginUserEmailInput)
 
-let loginUserButton = document.createElement("button")
-loginUserButton.textContent = "Login"
-loginUserButton.setAttribute("id", "login_user")
-document.getElementsById("login_user").onclick = function () {
-    location.href = "";
-};
+// let loginUserButton = document.createElement("button")
+// loginUserButton.textContent = "Login"
+// loginUserButton.setAttribute("class", "login_button")
 
-let registerUserButton = document.createElement("button")
-registerUserButton.textContent = "Register"
-registerUserButton.setAttribute("id", "register_user")
+// let registerUserButton = document.createElement("button")
+// registerUserButton.textContent = "Register"
+// registerUserButton.setAttribute("class", "register_button")
 
 let loginFormFragment = document.createDocumentFragment()
 loginFormFragment.appendChild(loginHeader)
 loginFormFragment.appendChild(loginUserNameField)
 loginFormFragment.appendChild(loginUserEmailField)
-loginFormFragment.appendChild(loginUserButton)
-loginFormFragment.appendChild(registerUserButton)
+// loginFormFragment.appendChild(loginUserButton)
+// loginFormFragment.appendChild(registerUserButton)
 
 let loginFormArticle = document.querySelector(".output_loginform")
 loginFormArticle.appendChild(loginFormFragment)
-    }
+    },
+
 }
 
 export default loginForm;
-
-// let loginButton = document.createElement("button")
-// loginButton.textContent = "Login"

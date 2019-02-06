@@ -1,63 +1,34 @@
-const runLogsForm = {
-    getAndAppendRunLogs() {
+    const runs = {
+    runsBuilder(runsObject) {
+        let runsArticleOutput = document.querySelector(".output_runsarticle")
 
-let runHeader = document.createElement("h2")
-runHeader.textContent = "Runs"
+        let runsArticle = document.createElement("article")
+        runsArticle.setAttribute("Id", `runs--${runsObject.id}`)
 
-let runDateField = document.createElement("fieldset")
+        let runDates = document.createElement("h2")
+        runDates.textContent = runsObject.date
+        let runTypes = document.createElement("h2")
+        runTypes.textContent = runsObject.type
+        let runDistances = document.createElement("h2")
+        runDistances.textContent = runsObject.distance
 
-let runDateLabel = document.createElement("label")
-runDateLabel.textContent = "Date"
-runDateLabel.setAttribute("for", "run_date")
-let runDateInput = document.createElement("input")
-runDateInput.setAttribute("id", "run_date")
-runDateInput.setAttribute("name", "run_date")
+        let editRunButton = document.createElement("button")
+        editRunButton.textContent = "Edit"
+        // editRunButton.addEventListener("click", () => {
+        //     let runArticleId = runsObject.id
 
-runDateField.appendChild(runDateLabel)
-runDateField.appendChild(runDateInput)
+        let deleteRunButton = document.createElement("button")
+        deleteRunButton.textContent = "Delete"
 
-let runTypeField = document.createElement("fieldset")
+        runsArticle.appendChild(runDates)
+        runsArticle.appendChild(runTypes)
+        runsArticle.appendChild(runDates)
+        runsArticle.appendChild(editRunButton)
+        runsArticle.appendChild(deleteRunButton)
 
-let runTypeLabel = document.createElement("label")
-runTypeLabel.textContent = "Type"
-runTypeLabel.setAttribute("for", "run_type")
-let runTypeInput = document.createElement("input")
-runTypeInput.setAttribute("id", "run_type")
-runTypeInput.setAttribute("name", "run_type")
+        runsArticleOutput.appendChild(runsArticle)
 
-runTypeField.appendChild(runTypeLabel)
-runTypeField.appendChild(runTypeInput)
-
-let runDistanceField = document.createElement("fieldset")
-
-let runDistanceLabel = document.createElement("label")
-runDistanceLabel.textContent = "Distance"
-runDistanceLabel.setAttribute("for", "run_distance")
-let runDistanceInput = document.createElement("input")
-runDistanceInput.setAttribute("id", "run_distance")
-runDistanceInput.setAttribute("name", "run_distance")
-
-runDistanceField.appendChild(runDistanceLabel)
-runDistanceField.appendChild(runDistanceInput)
-
-let jogLogButton = document.createElement("button")
-jogLogButton.textContent = "Log!"
-jogLogButton.setAttribute("class", "jogLog_button")
-
-let runFormFragment = document.createDocumentFragment()
-runFormFragment.appendChild(runHeader)
-runFormFragment.appendChild(runDateField)
-runFormFragment.appendChild(runTypeField)
-runFormFragment.appendChild(runDistanceField)
-runFormFragment.appendChild(jogLogButton)
-
-let runFormArticle = document.querySelector(".output_runlogsform")
-console.log(runFormArticle)
-runFormArticle.appendChild(runFormFragment)
     },
-
 }
 
-export default runLogsForm;
-
-
+export default runs

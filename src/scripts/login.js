@@ -3,7 +3,7 @@ const loginForm = {
     getAndAppendLogin() {
 
 let loginHeader = document.createElement("h2")
-loginHeader.textContent = "JogLog"
+loginHeader.textContent = "JogLog - Login"
 
 let loginUserNameField = document.createElement("fieldset")
 

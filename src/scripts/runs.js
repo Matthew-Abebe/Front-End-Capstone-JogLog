@@ -1,4 +1,5 @@
 import runsCollection from "./runsCollection";
+import runsList from "./runsList";
 
 /*The object const runs contains a method called runsBuilder. The method runsBuilder contains a promise called runsObject. Once the method runsBuilder is called the HTML for everything appended to the variable runsArticleOutput, which references the class ".output_runsarticle", is appended to the DOM. The elements appended to runsArticleOutput are first appended to an article element called runsArticle. The elements appended to runsArticle include five variables. Three of these variables are h2 elements in order to append the relevant run details. The last two are an edit and delete button. Once these five elements are appended to runsArticle, runsArticle is then appended to runsArticleOutput which references the class ".output_runsarticle" which appends the h2s and buttons to the DOM.*/
     const runs = {
@@ -28,13 +29,22 @@ import runsCollection from "./runsCollection";
 
         let deleteRunButton = document.createElement("button")
         deleteRunButton.textContent = "Delete"
-console.log(runsArticle)
+        deleteRunButton.addEventListener("click", () => {
+            let runArticleId = event.target.parentNode.id
+            let runId = runArticleId.split("--")[1]
+            runsCollection.deleteRun(runId)
+            .then(response => {
+                runsList.jogLogify()
+                console.log(response)
+            })
+        })
+
         runsArticle.appendChild(runDates)
         runsArticle.appendChild(runTypes)
-        runsArticle.appendChild(runDates)
+        runsArticle.appendChild(runDistances)
         runsArticle.appendChild(editRunButton)
         runsArticle.appendChild(deleteRunButton)
-console.log(runsArticle)
+
         runsArticleOutput.appendChild(runsArticle)
         }
     }

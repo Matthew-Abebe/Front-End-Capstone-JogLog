@@ -72,7 +72,7 @@ runFormArticle.appendChild(runFormFragment)
         let newRun = {
             date: inputRunDate,
             type: inputRunType,
-            location: inputRunDistance
+            distance: inputRunDistance
         }
 
         runsCollection.postNewRun(newRun)

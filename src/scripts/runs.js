@@ -1,6 +1,6 @@
 import runsCollection from "./runsCollection";
 import runsList from "./runsList";
-
+import runsEditForm from "./runsEdit"
 /*The object const runs contains a method called runsBuilder. The method runsBuilder contains a promise called runsObject. Once the method runsBuilder is called the HTML for everything appended to the variable runsArticleOutput, which references the class ".output_runsarticle", is appended to the DOM. The elements appended to runsArticleOutput are first appended to an article element called runsArticle. The elements appended to runsArticle include five variables. Three of these variables are h2 elements in order to append the relevant run details. The last two are an edit and delete button. Once these five elements are appended to runsArticle, runsArticle is then appended to runsArticleOutput which references the class ".output_runsarticle" which appends the h2s and buttons to the DOM.*/
     const runs = {
     runsBuilder(runsObject) {
@@ -20,10 +20,12 @@ import runsList from "./runsList";
         editRunButton.textContent = "Edit"
         editRunButton.addEventListener("click", () => {
             let runArticleId = event.target.parentNode.id
+            console.log(runArticleId)
             let runId = runArticleId.split("--")[1]
             runsCollection.getRun(runId)
-            .then(response => {
-                console.log(response)
+            .then(editRunObjectData => {
+                console.log(editRunObjectData)
+                runsEditForm.editRunAndAppendForm(editRunObjectData)
             })
         })
 

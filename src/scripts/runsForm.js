@@ -80,7 +80,7 @@ runFormArticle.appendChild(runFormFragment)
             console.log(response)
             runsList.jogLogify()
         })
-    }
+    },
 }
 
 /*runLogsForm is exported and made available to other modules*/

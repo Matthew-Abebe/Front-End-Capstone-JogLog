@@ -26,8 +26,18 @@ const runsCollection = {
         return fetch(`http://localhost:8088/Runs/${runId}`, {
             method: "DELETE",
             headers: {
-                "Content-Type": "applicationjson"
+                "Content-Type": "application/json"
             }
+        })
+    },
+
+    putUpdateRun(runId, runToEdit) {
+        return fetch(`http://localhost:8088/Runs/${runId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(runToEdit)
         })
     }
 }

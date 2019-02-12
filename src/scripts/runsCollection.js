@@ -5,6 +5,11 @@ const runsCollection = {
         .then(response => response.json())
     },
 
+    getAllUsers() {
+        return fetch("http://localhost:8088/Users")
+        .then(response => response.json())
+    },
+
 /*The method postNewRun(newRunToSave) adds the object newRun via the argument (newRunToSave) and posts it to the database. The fetch pings the API and saves the new record to the Run table in the database. JSON.stringify converts the argument newRunToSave to a string for the JSON server database in order to have it in the proper format.*/
     postNewRun(newRunToSave) {
         return fetch("http://localhost:8088/Runs", {

@@ -59,18 +59,11 @@ loginFormArticle.appendChild(loginFormFragment)
         runsCollection.getAllUsers()
         .then(Users => {
             console.log(Users)
-            for (var i = 0; i < Users.length; i++) {
-                console.log(loginUser.name, loginUser.email)
-
-                if (loginUser.name === Users[i].name && loginUser.email === Users[i].email) {
-                console.log("Welcome");
-                sessionStorage.setItem("name", loginUser.name)
-            } else {
-                console.log("User not found.")
-            }
-        }
-    })
-    }
-}
+        const foundUser = Users.find(User => {
+            return (loginUser.name === User.name && loginUser.email === User.email)
+        })
+        alert("Welcome" + " " + foundUser.name)
+        sessionStorage.setItem("Id", foundUser.id)
+})}}
 
 export default loginForm;

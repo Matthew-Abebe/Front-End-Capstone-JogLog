@@ -5,7 +5,7 @@ const runsCollection = {
         .then(response => response.json())
     },
 
-    getAllUsers(Users) {
+    getAllUsers() {
         return fetch("http://localhost:8088/Users/")
         .then(response => response.json())
     },

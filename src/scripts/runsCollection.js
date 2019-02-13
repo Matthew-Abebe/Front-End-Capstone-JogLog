@@ -5,8 +5,8 @@ const runsCollection = {
         .then(response => response.json())
     },
 
-    getAllUsers() {
-        return fetch("http://localhost:8088/Users")
+    getAllUsers(Users) {
+        return fetch("http://localhost:8088/Users/")
         .then(response => response.json())
     },
 
@@ -43,6 +43,16 @@ const runsCollection = {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(runToEdit)
+        })
+    },
+
+    putRegisterUser(userId, userToRegister ) {
+        return fetch(`http://localhost:8088/Users/${userId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userToRegister)
         })
     }
 }

@@ -36,16 +36,11 @@ loginButton.textContent = "Login"
 loginButton.setAttribute("class", "login_button")
 loginButton.addEventListener("click", this.handleLoginUser)
 
-let registerButton = document.createElement("button")
-registerButton.textContent = "Register"
-registerButton.setAttribute("class", "register_button")
-
 let loginFormFragment = document.createDocumentFragment()
 loginFormFragment.appendChild(loginHeader)
 loginFormFragment.appendChild(loginUserNameField)
 loginFormFragment.appendChild(loginUserEmailField)
 loginFormFragment.appendChild(loginButton)
-loginFormFragment.appendChild(registerButton)
 
 let loginFormArticle = document.querySelector(".output_loginform")
 loginFormArticle.appendChild(loginFormFragment)
@@ -70,11 +65,12 @@ loginFormArticle.appendChild(loginFormFragment)
                 if (loginUser.name === Users[i].name && loginUser.email === Users[i].email) {
                 console.log("Welcome");
                 sessionStorage.setItem("name", loginUser.name)
+            } else {
+                console.log("User not found.")
             }
         }
     })
     }
 }
-
 
 export default loginForm;

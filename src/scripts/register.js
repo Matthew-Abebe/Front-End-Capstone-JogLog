@@ -1,47 +1,55 @@
-const registerForm = {
-    getAndAppendRegistration() {
+import runsCollection from "./runsCollection"
 
-let registerHeader = document.createElement("h2")
-registerHeader.textContent = "Register"
+const registerUserForm = {
+    registerUserAndAppendForm(userObjectToRegister) {
+        let registerUserNameField = document.createElement("h2")
 
-let registerUserNameField = document.createElement("fieldset")
+        let registerUserNameLabel = document.createElement("label")
+        registerUserNameLabel.textContent = "Name"
+        let registerUserNameInput = document.createElement("input")
+        registerUserNameInput.value = userObjectToRegister.name
 
-let registerUserNameLabel = document.createElement("label")
-registerUserNameLabel.textContent = "Username"
-registerUserNameLabel.setAttribute("for", "register_name")
-let registerUserNameInput = document.createElement("input")
-registerUserNameInput.setAttribute("id", "register_name")
-registerUserNameInput.setAttribute("name", "register_name")
+        registerUserNameField.appendChild(registerUserNameLabel)
+        registerUserNameField.appendChild(registersUserNameInput)
 
-registerUserNameField.appendChild(registerUserNameLabel)
-registerUserNameField.appendChild(registerUserNameInput)
+        let registerUserEmailField = document.createElement("h2")
 
-let registerUserEmailField = document.createElement("fieldset")
+        let registerUserEmailLabel = document.createElement("label")
+        registerUserEmailLabel.textContent = "Email"
+        let registerUserEmailInput = document.createElement("input")
+        registerUserEmailInput.value = userObjectToRegister.email
 
-let registerUserEmailLabel = document.createElement("label")
-registerUserEmailLabel.textContent = "Email Address"
-registerUserEmailLabel.setAttribute("for", "register_email")
-let registerUserEmailInput = document.createElement("input")
-registerUserEmailInput.setAttribute("id", "register_email")
-registerUserEmailInput.setAttribute("name", "register_email")
+        registerUserEmailField.appendChild(registerUserEmailLabel)
+        registerUserEmailField.appendChild(registerUserEmailInput)
 
-registerUserEmailField.appendChild(registerUserEmailLabel)
-registerUserEmailField.appendChild(registerUserEmailInput)
+        let registerUserButton = document.createElement("button")
+        registerUserButton.textContent = "Register"
+        registerUserButton.addEventListener("click", this.handleRegisterUser)
 
-let registerButton = document.createElement("button")
-registerButton.textContent = "Register"
-registerButton.setAttribute("class", "login_button")
+        let registerUserFormFragment = document.createDocumentFragment()
 
-let registerFormFragment = document.createDocumentFragment()
-registerFormFragment.appendChild(registerHeader)
-registerFormFragment.appendChild(registerUserNameField)
-registerFormFragment.appendChild(registerUserEmailField)
-registerFormFragment.appendChild(registerButton)
+        registerUserFormFragment.appendChild(registerUserNameField)
+        registerUserFormFragment.appendChild(registerUserEmailField)
+        registerUserFormFragment.appendChild(registerUserButton)
 
-let registerFormArticle = document.querySelector(".output_registerform")
-registerFormArticle.appendChild(registerFormFragment)
+        let registerUserArticleOutput = document.querySelector("output_registeruserarticle")
+
+        registerUserArticleOutput.appendChild(registerUserFormFragment)
     },
 
+    handleRegisterUser(event) {
+        console.log("hi")
+        let registeredUser = {
+            name: registerUserNameInput.value,
+            email: registerUserEmailInput.value
+    }
+    console.log(registeredUser)
+
+    runsCollection.putRegisterUser(userObjectToRegister, registeredUser)
+    .then(response => {
+        console.log(response)
+    })
+}
 }
 
-export default registerForm;
+export default registerUserForm;

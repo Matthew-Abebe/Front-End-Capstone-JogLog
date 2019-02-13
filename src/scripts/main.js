@@ -9,7 +9,6 @@ import runsList from "./runsList"
 
 /*Here are the functions being called with dot notation*/
 loginForm.getAndAppendLogin();
-registerForm.getAndAppendRegistration();
 runsCollection.getAllRuns();
 runLogsForm.getAndAppendRunLogs();
 runsList.jogLogify();

@@ -64,6 +64,7 @@ const loginForm = {
                 Users.forEach(User => {
                     if (loginUser.name === User.name && loginUser.email === User.email) {
                     alert("Welcome" + " " + User.name)
+                    sessionStorage.setItem("Id", User.id)
                     }
                     else if
                     (findUser === Users.length) {

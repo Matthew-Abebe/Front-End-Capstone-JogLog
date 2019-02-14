@@ -20,6 +20,16 @@ const runsCollection = {
             body: JSON.stringify(newRunToSave)
         })
     },
+
+    postRegisterUser(userToRegister) {
+        return fetch("http://localhost:8088/Users/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userToRegister)
+        })
+    },
 /*The method getRun(runId) allows you to get an individual object based on the Id from the Run object in the database. The fetch call communicates with the API, which has specified to communicate with the runId.*/
     getRun(runId) {
         return fetch(`http://localhost:8088/Runs/${runId}`)
@@ -45,16 +55,6 @@ const runsCollection = {
             body: JSON.stringify(runToEdit)
         })
     },
-
-    putRegisterUser(userId, userToRegister ) {
-        return fetch(`http://localhost:8088/Users/${userId}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(userToRegister)
-        })
-    }
 }
 
 /*The object runsCollection is exported and it is made available in other modules*/

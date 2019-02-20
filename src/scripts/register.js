@@ -47,7 +47,7 @@ const registerUserForm = {
     },
 
     handleRegisterUser(event ,  registerUserName , registerUserEmail) {
-        console.log("hi")
+        // console.log("hi")
         let inputRegisterUserName = document.querySelector("#register_name").value
         let inputRegisterUserEmail = document.querySelector("#register_email").value
 

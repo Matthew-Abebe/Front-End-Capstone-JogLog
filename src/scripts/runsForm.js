@@ -58,7 +58,7 @@ runFormFragment.appendChild(runDistanceField)
 runFormFragment.appendChild(jogLogButton)
 
 let runFormArticle = document.querySelector(".output_runlogsform")
-console.log(runFormArticle)
+// console.log(runFormArticle)
 runFormArticle.appendChild(runFormFragment)
     },
 
@@ -80,7 +80,8 @@ runFormArticle.appendChild(runFormFragment)
             console.log(response)
             runsList.jogLogify()
         })
-    },
+    }
+
 }
 
 /*runLogsForm is exported and made available to other modules*/

@@ -47,6 +47,9 @@ const runsEditForm = {
                 console.log(response)
                 runsList.jogLogify()
             })
+            while (editRunArticleOutput.firstChild) {
+                editRunArticleOutput.removeChild(editRunArticleOutput.firstChild);
+            }
         })
 
         let editRunFormFragment = document.createDocumentFragment()
@@ -57,10 +60,6 @@ const runsEditForm = {
         editRunFormFragment.appendChild(updateRunButton)
 
         let editRunArticleOutput = document.querySelector(".output_editrunsarticle")
-
-        while (editRunArticleOutput.firstChild) {
-            editRunArticleOutput.removeChild(editRunArticleOutput.firstChild);
-        }
 
         editRunArticleOutput.appendChild(editRunFormFragment)
     }
